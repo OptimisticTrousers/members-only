@@ -7,6 +7,7 @@ var session = require("express-session");
 var passport = require("passport");
 var LocalStrategy = require("passport-local").Strategy;
 var mongoose = require("mongoose");
+require("dotenv").config();
 
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
@@ -15,10 +16,7 @@ var app = express();
 
 var mongoDb = process.env.DB_STRING;
 
-mongoose.connect(mongoDb, {
-  useUnifiedTopology: true,
-  useNewUrlParser: true,
-});
+mongoose.connect(mongoDb, { useNewUrlParser: true, useUnifiedTopology: true });
 var db = mongoose.connection;
 db.on("error", console.error.bind(console, "mongo connection error"));
 
