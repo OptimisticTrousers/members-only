@@ -11,7 +11,7 @@ require("dotenv").config();
 
 var indexRouter = require("./routes/index");
 
-var User = require("../models/user");
+var User = require("./models/user");
 
 var app = express();
 
