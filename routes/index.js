@@ -7,13 +7,27 @@ router.get('/', function(req, res, next) {
 });
 
 router.get("/sign-up", function (req, res, next) {
-  res.render("sign-up__form")
+  res.render("signup_form")
 })
 
 router.get("/log-in", function (req, res, next) {
-
+  res.render("login_form")
 })
 
-router.get("/")
+router.get("/create", function(req, res, next) {
+  res.render("message_form")
+})
+
+router.get("/:id", function(req, res, next) {
+  res.render("message_detail")
+})
+
+router.get("/:id/delete", function(req, res, next) {
+  res.render("message_delete")
+})
+
+router.get("/:id/update", function (req, res, next) {
+  res.render("message_form")
+})
 
 module.exports = router;
