@@ -1,17 +1,50 @@
+@font-face {
+  font-family: "Kaleko";
+  src: url(../fonts/kaleko-105-bold.ttf);
+}
+
+@font-face {
+  font-family: "Open Sans";
+  src: url(../fonts/OpenSans-Regular.ttf);
+}
+
+@font-face {
+  font-family: "PMN Caecilia";
+  src: url(../fonts/PMNCaeciliaSansHeadRg.TTF);
+}
+
+@font-face {
+  font-family: "Petala Pro";
+  src: url(../fonts/PetalaPro-Bold.woff2);
+}
+
 html {
   height: 100%;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background: url(../images/clubhouse-background.webp);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 body {
-  min-height: 100%;
+  height: 100%;
   margin: 0;
   color: black;
   padding: 50px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
 }
 
 main {
-  min-height: 100%;
+  height: 100%;
+}
+
+.footer {
+  margin-top: auto;
+  height: 8%;
+  display: grid;
+  place-items: center;
 }
 
 a {
