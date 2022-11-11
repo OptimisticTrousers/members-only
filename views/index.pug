@@ -5,8 +5,10 @@ block styles
 
 block content
   section(class="home")
-    h1= title
-    p You're moments away from the best social messaging experience you've ever had
-    button Sign Up
-    button Log In
-    button View Posts
+    h2(class="home__welcome") Welcome to
+    h1(class="home__title")= title
+    p(class="home__description") You're moments away from the best, most innovative social messaging experience you've ever had
+    nav(class="home__navigation")
+      a(class="home__link home__link--blue") Sign Up
+      a(class="home__link home__link--white") Log In
+      a(class="home__link home__link--black") View Posts
