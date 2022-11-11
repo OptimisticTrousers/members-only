@@ -1,5 +1,12 @@
 extends layout
 
+block styles
+  link(rel="stylesheet", href="/stylesheets/home.css")
+
 block content
-  h1= title
-  p Welcome to #{title}
+  section(class="home")
+    h1= title
+    p You're moments away from the best social messaging experience you've ever had
+    button Sign Up
+    button Log In
+    button View Posts
