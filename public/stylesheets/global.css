@@ -29,8 +29,8 @@ html {
 body {
   height: 100%;
   margin: 0;
+  padding: 0;
   color: black;
-  padding: 50px;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -40,13 +40,70 @@ main {
   height: 100%;
 }
 
+.header {
+  width: 100%;
+  background-color: #452b5b;
+  box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.35);
+}
+
+.header__navigation {
+  padding-left: 2rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header__list {
+  float: right;
+  margin-right: 20px;
+}
+
+.header__item {
+  display: inline-block;
+  margin: 0 5px;
+}
+
+.header__image {
+  z-index: 1;
+  width: 75px;
+  height: 75px;
+  background-color: transparent;
+  border-radius: 50%;
+  box-shadow: 15px 10px 20px 0px rgba(0, 0, 0, 0.25);
+}
+
+.header__image:hover {
+  opacity: 0.7;
+}
+
+.header__link {
+  font-size: 16px;
+  padding: 8px 13px;
+  text-decoration: none;
+  color: white;
+  cursor: pointer;
+}
+
+.header__link--regular:hover {
+  color: #3a95c9;
+}
+
+.header__link--signup {
+  background-color: #3a95c9;
+  padding: 8px 30px;
+  border-radius: 50px;
+  color: white;
+}
+
+.header__link--signup:hover {
+  background-color: #2d78a3;
+}
+
 .footer {
   margin-top: auto;
   height: 8%;
   display: grid;
   place-items: center;
-}
-
-a {
-  color: #00B7FF;
 }

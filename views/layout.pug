@@ -8,6 +8,19 @@ html(lang='en')
     link(rel='shortcut icon' href='/images/optimistictrousers.jpg' type='image/x-icon')
     block styles
   body
+    header(class="header")
+      nav(class="header__navigation")
+        a(class="header__logo" href="/")
+          img(class="header__image" src="/images/optimistictrousers.jpg" alt="smiling pair of pants")
+        ul(class="header__list")
+          li(class="header__item")
+            a(class="header__link header__link--regular" href="/posts") Posts
+          li(class="header__item")
+            a(class="header__link header__link--regular" href="/posts/create") Create Post
+          li(class="header__item")
+            a(class="header__link header__link--regular" href="/log-in") Log In
+          li(class="header__item")
+            a(class="header__link header__link--signup" href="/sign-up") Sign Up
     main
       block content
     footer(class="footer")
