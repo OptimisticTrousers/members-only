@@ -60,7 +60,6 @@ h1 {
     color: #f47c80;
     font-weight: 900;
     cursor: pointer;
-    text-decoration: none;
 }
 
 .form__link:hover {
