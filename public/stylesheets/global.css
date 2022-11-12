@@ -151,11 +151,13 @@ a {
     margin: 0 auto;
     line-height: 70px;
   }
+
   .header__navigation {
     display: block;
     padding-left: 0;
     margin: 0 10px;
   }
+
   .header__list {
     text-align: center;
     display: none;
@@ -163,31 +165,38 @@ a {
     padding-left: 0;
     margin-right: 0;
   }
+
   .header__image {
     display: inline-block;
   }
+
   .header__link {
     line-height: 70px;
     width: 100%;
     border-radius: 0;
   }
+
   .header__link--signup {
     background-color: transparent;
     color: white;
   }
+
   .header__link--signup:hover {
     background-color: transparent;
     color: #3a95c9;
   }
+
   .header__item {
     display: flex;
     justify-content: center;
     align-items: center;
     border-bottom: 1px solid #eaeaeb;
   }
+
   .header__item:last-child {
     border-bottom: none;
   }
+
   #toggle:checked ~ .header__list {
     display: flex;
     flex-direction: column;

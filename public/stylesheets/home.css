@@ -80,13 +80,16 @@
   .home__title {
     font-size: 3.8rem;
   }
+
   .home__welcome {
     font-size: 2rem;
   }
+
   .home__navigation{
     width: 100%;
     display: block;
   }
+
   .home__link {
     margin-top: 10px;
     margin-left: 10px;
