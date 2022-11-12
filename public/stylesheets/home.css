@@ -44,6 +44,7 @@
     font-family: "Petala Pro";
     font-size: 1.5rem;
     transition: all 0.2s ease;
+    text-decoration: none;
 }
 
 .home__link--blue {
