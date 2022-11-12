@@ -1,0 +1,16 @@
+extends layout
+
+block styles
+    link(rel="stylesheet", href="/stylesheets/form.css")
+
+block content
+    section
+        h1 Create Post
+        form(class="form")
+            div(class="form__group")
+                input(id="title" name="title" class="form__control" required="true" placeholder="Milk with cereal is a bad idea")
+                label(class="form__label" for="title") Title
+            div(class="form__group")
+                textarea(id="content" name="content" class="form__control" required="true" placeholder="Cereal is a...")
+                label(class="form__label" for="password") Content
+            button(class="form__button" type="submit") Submit
