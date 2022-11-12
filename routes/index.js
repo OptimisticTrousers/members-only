@@ -1,33 +1,21 @@
 var express = require('express');
 var router = express.Router();
 
+var controller = require("../controllers/controller")
+
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
-});
+router.get('/', controller.index);
 
-router.get("/sign-up", function (req, res, next) {
-  res.render("signup_form")
-})
+router.get("/sign-up", controller.signup_get)
 
-router.get("/log-in", function (req, res, next) {
-  res.render("login_form")
-})
+router.get("/log-in", controller.login_get)
 
-router.get("/create", function(req, res, next) {
-  res.render("message_form")
-})
+router.get("/create", controller.message_create_get)
 
-router.get("/:id", function(req, res, next) {
-  res.render("message_detail")
-})
+router.get("/:id", controller.message_detail)
 
-router.get("/:id/delete", function(req, res, next) {
-  res.render("message_delete")
-})
+router.get("/:id/delete", controller.message_delete_get)
 
-router.get("/:id/update", function (req, res, next) {
-  res.render("message_form")
-})
+router.get("/:id/update", controller.message_update_get)
 
 module.exports = router;
