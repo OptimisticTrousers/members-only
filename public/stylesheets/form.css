@@ -82,3 +82,15 @@ h1 {
 .form__button:hover {
     background-color: #ff7276;
 }
+
+@media(max-width: 520px) {
+    .form {
+        width: 95%;
+        box-sizing: border-box;
+        padding: 2rem;
+    }
+    .form__container {
+        flex-direction: column;
+        align-items: center;
+    }
+}

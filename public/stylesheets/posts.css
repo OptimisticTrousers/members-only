@@ -3,7 +3,7 @@ section {
     max-width: 800px;
     margin-left: auto;
     margin-right: auto;
-    padding: 0 1.5rem;
+    padding: 0 1rem;
 }
 
 .post-excerpt {
@@ -25,6 +25,7 @@ section {
 }
 
 .post-excerpt__date {
+    margin-left: 8px;
     font-style: italic;
 }
 
