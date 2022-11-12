@@ -9,3 +9,11 @@ exports.signup_get = function (req, res, next) {
 exports.login_get = function (req, res, next) {
   res.render("login_form");
 };
+
+exports.membership_get = function (req, res, next) {
+  res.render("vip_form")
+}
+
+exports.admin_get = function (req, res, next) {
+  res.render("vip_form")
+}

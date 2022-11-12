@@ -1,0 +1,12 @@
+extends layout
+
+block styles
+    link(rel="stylesheet", href="/stylesheets/vip.css")
+
+block content
+    section
+        form(class="form")
+            img(class="form__image" src="/images/vip.png")
+            label(class="form__label" for="code") Enter the passphrase to become a member of the club!
+            input(class="form__control" id="code" name="code")
+            button(class="form__button" type="submit") Join
