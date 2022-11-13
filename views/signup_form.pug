@@ -8,13 +8,16 @@ block content
         h1 Sign up
         form(class="form")
             div(class="form__group")
-                input(id="fullName" name="fullName" class="form__control" required="true" placeholder="Bob Jones")
-                label(class="form__label" for="fullName") FULL NAME
+                input(id="firstName" name="firstName" class="form__control" required="true" placeholder="Bob")
+                label(class="form__label" for="firstName") FIRST NAME
             div(class="form__group")
-                input(id="email" name="email" class="form__control" required="true" placeholder="you@domain.com")
+                input(id="lastName" name="lastName" class="form__control" required="true" placeholder="Jones")
+                label(class="form__label" for="lastName") LAST NAME
+            div(class="form__group")
+                input(id="email" name="email" class="form__control" type="email" required="true" placeholder="you@domain.com")
                 label(class="form__label" for="email") EMAIL
             div(class="form__group")
-                input(id="email" name="email" class="form__control" required="true" placeholder="password")
+                input(id="password" name="password" class="form__control" type="password" required="true" placeholder="password")
                 label(class="form__label" for="password") PASSWORD
             button(class="form__button" type="submit") Sign Up
             div(class="form__container")

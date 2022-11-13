@@ -23,25 +23,33 @@ exports.signup_post = [
     const errors = validationResult(req);
 
     bcrypt.hash(req.body.password, 10, (err, hashedPassword) => {
+      if (err) {
+        return next(err);
+      }
+
       const user = new User({
         firstName: req.body.firstName,
         lastName: req.body.lastName,
         email: req.body.email,
         password: hashedPassword,
-      })
+      });
 
-      if(!errors.isEmpty()) {
+      if (!errors.isEmpty()) {
         // There are errors. Render form again with sanitized values/error messages.
-        
+        res.render("signup_form", {
+          title: "Sign Up",
+          user,
+          errors: errors.array(),
+        });
+        return;
       } else {
         user.save(function (err) {
-          if(err) {
-            return next(err)
+          if (err) {
+            return next(err);
           }
-
           // Successful - redirect to home page
-          res.redirect("/")
-        })
+          res.redirect("/");
+        });
       }
     });
   },

@@ -9,6 +9,8 @@ router.get("/", index_controller.index);
 /* GET sign up page. */
 router.get("/sign-up", index_controller.signup_get);
 
+router.post("/sign-up", index_controller.signup_post)
+
 /* GET log in page. */
 router.get("/log-in", index_controller.login_get);
 
