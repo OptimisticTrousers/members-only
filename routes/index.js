@@ -1,5 +1,6 @@
 var express = require("express");
 var router = express.Router();
+var passport = require("passport");
 
 var index_controller = require("../controllers/indexController");
 
@@ -9,10 +10,20 @@ router.get("/", index_controller.index);
 /* GET sign up page. */
 router.get("/sign-up", index_controller.signup_get);
 
-router.post("/sign-up", index_controller.signup_post)
+/* POST sign up page. */
+router.post("/sign-up", index_controller.signup_post);
 
 /* GET log in page. */
 router.get("/log-in", index_controller.login_get);
+
+/* POST log in page. */
+router.post(
+  "/log-in",
+  passport.authenticate("local", {
+    successRedirect: "/",
+    failureRedirect: "/log-in",
+  })
+);
 
 /* GET membership page. */
 router.get("/membership", index_controller.membership_get);

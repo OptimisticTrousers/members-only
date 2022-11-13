@@ -32,6 +32,8 @@ exports.signup_post = [
         lastName: req.body.lastName,
         email: req.body.email,
         password: hashedPassword,
+        membershipStatus: false,
+        admin: false,
       });
 
       if (!errors.isEmpty()) {

@@ -6,12 +6,12 @@ block styles
 block content
     section
         h1 Log In
-        form(class="form")
+        form(class="form" method="POST" action="")
             div(class="form__group")
-                input(id="email" name="email" class="form__control" required="true" placeholder="you@domain.com")
+                input(id="email" name="email" class="form__control" type="email" required="true" placeholder="you@domain.com")
                 label(class="form__label" for="email") EMAIL
             div(class="form__group")
-                input(id="email" name="email" class="form__control" required="true" placeholder="password")
+                input(id="email" name="email" class="form__control" type="password" required="true" placeholder="password")
                 label(class="form__label" for="password") PASSWORD
             button(class="form__button" type="submit") Log In
             div(class="form__container")
