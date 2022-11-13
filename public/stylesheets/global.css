@@ -144,6 +144,7 @@ a {
 }
 
 @media only screen and (max-width: 650px) {
+  /* https://www.youtube.com/watch?v=xMTs8tAapnQ */
   .header__label {
     display: inline-block;
     cursor: pointer;
