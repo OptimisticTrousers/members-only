@@ -43,6 +43,7 @@ Beyond that, other learning outcomes were:
 ## Areas for Improvement
 
 * [ ] Create a "Show Password" section in the sign up form or a "Confirm Password" field.
+* [ ] Check the database to see if another user has used the same email address
 
 ## Known Bugs
 
