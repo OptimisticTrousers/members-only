@@ -2,7 +2,7 @@ doctype html
 html(lang='en')
   head
     title= title
-    link(rel='stylesheet', href='/stylesheets/global.css')
+    link(rel='stylesheet' href='/stylesheets/global.css')
     meta(charset='utf-8')
     meta(name='viewport' content='width=device-width, initial-scale=1')
     link(rel='shortcut icon' href='/images/optimistictrousers.jpg' type='image/x-icon')
@@ -19,10 +19,15 @@ html(lang='en')
             a(class="header__link header__link--regular" href="/posts") Posts
           li(class="header__item")
             a(class="header__link header__link--regular" href="/posts/create") Create Post
-          li(class="header__item")
-            a(class="header__link header__link--regular" href="/log-in") Log In
-          li(class="header__item")
-            a(class="header__link header__link--signup" href="/sign-up") Sign Up
+          if locals.isAuthenticated
+            li(class="header__item")
+              a(class="header__link header__link--signup" href="/log-out") Sign Out
+            li(class="header__item") Hello, #{locals.user.firstName} #{locals.user.lastName}
+          else
+            li(class="header__item")
+              a(class="header__link header__link--regular" href="/log-in") Log In
+            li(class="header__item")
+              a(class="header__link header__link--signup" href="/sign-up") Sign Up
     main
       block content
     footer(class="footer")

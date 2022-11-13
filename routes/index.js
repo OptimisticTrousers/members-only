@@ -25,6 +25,9 @@ router.post(
   })
 );
 
+/* GET log out page. */
+router.get("/log-out", index_controller.logout_get);
+
 /* GET membership page. */
 router.get("/membership", index_controller.membership_get);
 

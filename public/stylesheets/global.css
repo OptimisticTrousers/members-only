@@ -54,6 +54,11 @@ main {
   align-items: center;
 }
 
+.header__welcome {
+  color: white;
+  font-family: "Kaleko";
+}
+
 .header__list {
   margin: 0 30px 0 0;
 }
@@ -87,6 +92,12 @@ main {
 .header__item {
   display: inline-block;
   margin: 0 5px;
+}
+
+.header__item:last-child {
+    border-bottom: none;
+    color: white;
+    font-family: "Kaleko";
 }
 
 .header__image {
@@ -143,7 +154,7 @@ a {
   text-decoration: none;
 }
 
-@media only screen and (max-width: 650px) {
+@media only screen and (max-width: 700px) {
   /* https://www.youtube.com/watch?v=xMTs8tAapnQ */
   .header__label {
     display: inline-block;
@@ -196,6 +207,11 @@ a {
 
   .header__item:last-child {
     border-bottom: none;
+    padding: 8px 13px;
+    font-size: 2rem;
+    line-height: 70px;
+    text-align: center;
+    margin: 0 10px;
   }
 
   #toggle:checked ~ .header__list {

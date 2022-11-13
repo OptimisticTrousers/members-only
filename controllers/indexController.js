@@ -61,6 +61,15 @@ exports.login_get = function (req, res, next) {
   res.render("login_form");
 };
 
+exports.logout_get = function(req, res, next) {
+  req.logout(function(err) {
+    if(err) {
+      return next(err)
+    }
+    res.redirect("/")
+  })
+}
+
 exports.membership_get = function (req, res, next) {
   res.render("vip_form");
 };
