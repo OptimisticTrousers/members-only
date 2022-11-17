@@ -8,9 +8,11 @@ block content
         article(class="post")
             h3(class="post__title") #{post.title}
             div(class="post__details")
-                span(class="post__author") by #{post.user.firstName} #{post.user.lastName}
-                span(class="post__date") about #{post.timestamp}
+                if post.user.membershipStatus
+                    span(class="post__author") by #{post.user.firstName} #{post.user.lastName}
+                    span(class="post__date") about #{post.timestamp}
             p(class="post__content") #{post.content}
             div(class="post__links")
                 a(class="post__link post__link--edit") Edit Post
-                a(class="post__link post__link--delete" href=`${post.url}/delete`) Delete Post
+                if post.user.admin
+                    a(class="post__link post__link--delete" href=`${post.url}/delete`) Delete Post

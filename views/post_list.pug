@@ -10,7 +10,8 @@ block content
             article(class="post-excerpt")
                 h3(class="post-excerpt__title") #{post.title}
                 div(class="post-excerpt__details")
-                    span(class="post-excerpt__author") by #{post.user.firstName} #{post.user.lastName}
-                    span(class="post-excerpt__date") about #{post.timestamp}
+                    if post.user.membershipStatus
+                        span(class="post-excerpt__author") by #{post.user.firstName} #{post.user.lastName}
+                        span(class="post-excerpt__date") about #{post.timestamp}
                 p(class="post-excerpt__content") #{post.content}
                 a(class="post-excerpt__link" href=post.url) View Post
