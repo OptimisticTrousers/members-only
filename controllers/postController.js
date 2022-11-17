@@ -1,3 +1,6 @@
+const Post = require("../models/post")
+var { body, validationResult } = require("express-validator");
+
 exports.post_list = function (req, res, next) {
   res.render("post_list");
 };
@@ -5,6 +8,52 @@ exports.post_list = function (req, res, next) {
 exports.post_create_get = function (req, res, next) {
   res.render("post_form");
 };
+
+// Handle post create on POST.
+exports.post_create_post = [
+  // Validate and sanitize fields.
+  body("title", "Title must not be empty.")
+    .trim()
+    .isLength({min: 1})
+    .escape(),
+  body("content", "Content must not be empty.")
+    .trim()
+    .isLength({min: 1})
+    .escape(),
+    (req, res, next) => {
+      // Extract the validation errors from a request
+      const errors = validationResult(req)
+
+      // Create a Post object with escaped and trimmed data.
+      const post = new Post({
+        title: req.body.title,
+        userId: req.user,
+        timestamp: Date.now(),
+        content: req.body.content
+      })
+
+      if(!errors.isEmpty()) {
+        // There are errors. Render the form again with sanitized values/error messages.
+        res.render("post_form", {
+          title: "Create Post",
+          post,
+          errors: errors.array()
+        })
+        return;
+      } else {
+        // Data from form is valid.
+        
+        // Save post.
+        post.save(function (err) {
+          if(err) {
+            return next(err)
+          }
+          // Successful - redirect to new author record
+          res.redirect(post.url)
+        })
+      }
+    }
+];
 
 exports.post_detail = function (req, res, next) {
   res.render("post_detail");

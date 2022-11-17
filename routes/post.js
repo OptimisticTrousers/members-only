@@ -9,6 +9,8 @@ router.get("/", post_controller.post_list);
 /* GET request for creating posts. */
 router.get("/create", post_controller.post_create_get);
 
+router.post("/create", post_controller.post_create_post);
+
 /* GET request for one post. */
 router.get("/:id", post_controller.post_detail);
 

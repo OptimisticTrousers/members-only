@@ -4,9 +4,10 @@ block styles
     link(rel="stylesheet", href="/stylesheets/form.css")
 
 block content
+    - console.log(locals.user)
     section
         h1 Create Post
-        form(class="form")
+        form(class="form" method="POST" action="")
             div(class="form__group")
                 input(id="title" name="title" class="form__control" required="true" placeholder="Milk with cereal is a bad idea")
                 label(class="form__label" for="title") Title

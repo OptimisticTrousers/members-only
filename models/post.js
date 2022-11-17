@@ -5,11 +5,11 @@ const PostSchema = new Schema({
   title: { type: String, required: true },
   userId: { type: Schema.Types.ObjectId, ref: "User", required: true },
   timestamp: { type: Date, required: true },
-  text: { type: String, required: true },
+  content: { type: String, required: true },
 });
 
 PostSchema.virtual("url").get(function () {
-  return `/item/${this._id}`;
+  return `/posts/${this._id}`;
 });
 
 module.exports = mongoose.model("Post", PostSchema);
