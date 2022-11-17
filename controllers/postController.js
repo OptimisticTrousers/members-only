@@ -66,7 +66,22 @@ exports.post_create_post = [
 ];
 
 exports.post_detail = function (req, res, next) {
-  res.render("post_detail");
+  Post.findById(req.params.id).populate("user").exec(function(err, post) {
+    if(err) {
+      return next(err)
+    }
+    if(post == null) {
+      // No results.
+      var err = new Error("Post not found")
+      err.status = 404;
+      return next(err)
+    } 
+    // Successful, so render.
+    res.render("post_detail", {
+      title: "Post: ",
+      post
+    });
+  })
 };
 
 exports.post_delete_get = function (req, res, next) {
