@@ -23,3 +23,7 @@ block content
             div(class="form__container")
                 span(class="form__already") Already a member?
                 a(class="form__link" href="/log-in") Log In
+    if errors 
+        ul
+        for error in errors
+            li!= error.msg

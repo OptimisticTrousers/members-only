@@ -10,3 +10,7 @@ block content
             label(class="form__label" for="code") Enter the passphrase to become a member of the club!
             input(class="form__control" id="code" name="code")
             button(class="form__button" type="submit") Join
+    if errors 
+        ul
+        for error in errors
+            li!= error.msg

@@ -14,3 +14,7 @@ block content
                 textarea(id="content" name="content" class="form__control" required="true" placeholder="Cereal is a...")
                 label(class="form__label" for="password") Content
             button(class="form__button" type="submit") Submit
+    if errors 
+        ul
+        for error in errors
+            li!= error.msg

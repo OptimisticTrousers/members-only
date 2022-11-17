@@ -17,3 +17,7 @@ block content
             div(class="form__container")
                 span(class="form__already") Don't have an account?
                 a(class="form__link" href="/sign-up") Sign Up
+    if errors 
+        ul
+        for error in errors
+            li!= error.msg
