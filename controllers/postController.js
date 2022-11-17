@@ -85,6 +85,15 @@ exports.post_detail = function (req, res, next) {
 };
 
 exports.post_delete_get = function (req, res, next) {
+  Post.findById(req.params.id).populate("user").exec(function (err, post) {
+    if(err) {
+      return next(err)
+    }
+    if(post == null) {
+      // No results.
+      
+    }
+  })
   res.render("post_delete");
 };
 
