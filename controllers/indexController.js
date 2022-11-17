@@ -8,7 +8,9 @@ exports.index = function (req, res, next) {
 };
 
 exports.signup_get = function (req, res, next) {
-  res.render("signup_form");
+  res.render("signup_form", {
+    title: "Sign Up"
+  });
 };
 
 // Handle sign up on POST
@@ -59,7 +61,9 @@ exports.signup_post = [
 ];
 
 exports.login_get = function (req, res, next) {
-  res.render("login_form");
+  res.render("login_form", {
+    title: "Log In"
+  });
 };
 
 exports.logout_get = function (req, res, next) {
@@ -72,7 +76,9 @@ exports.logout_get = function (req, res, next) {
 };
 
 exports.membership_get = function (req, res, next) {
-  res.render("vip_form");
+  res.render("vip_form", {
+    title: "Membership Code"
+  });
 };
 
 exports.membership_post = [
@@ -102,7 +108,9 @@ exports.membership_post = [
 ];
 
 exports.admin_get = function (req, res, next) {
-  res.render("vip_form");
+  res.render("vip_form", {
+    title: "Admin Code"
+  });
 };
 
 exports.admin_post = [

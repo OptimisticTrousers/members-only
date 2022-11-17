@@ -17,7 +17,9 @@ exports.post_list = function (req, res, next) {
 };
 
 exports.post_create_get = function (req, res, next) {
-  res.render("post_form");
+  res.render("post_form", {
+    title: "Create Post"
+  });
 };
 
 // Handle post create on POST.
@@ -81,7 +83,7 @@ exports.post_detail = function (req, res, next) {
       }
       // Successful, so render.
       res.render("post_detail", {
-        title: "Post: ",
+        title: `Post: ${post.title}`,
         post,
       });
     });
@@ -116,8 +118,4 @@ exports.post_delete_post = function (req, res, next) {
     // Success, so redirect to list of Post items
     res.redirect("/posts");
   });
-};
-
-exports.post_update_get = function (req, res, next) {
-  res.render("post_form");
 };

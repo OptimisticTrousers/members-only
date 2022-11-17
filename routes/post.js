@@ -20,7 +20,4 @@ router.get("/:id/delete", post_controller.post_delete_get);
 /* POST request to delete post. */
 router.post("/:id/delete", post_controller.post_delete_post);
 
-/* GET request to update post. */
-router.get("/:id/update", post_controller.post_update_get);
-
 module.exports = router;

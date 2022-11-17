@@ -13,6 +13,5 @@ block content
                     span(class="post__date") about #{post.timestamp}
             p(class="post__content") #{post.content}
             div(class="post__links")
-                a(class="post__link post__link--edit") Edit Post
                 if post.user.admin
                     a(class="post__link post__link--delete" href=`${post.url}/delete`) Delete Post
