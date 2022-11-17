@@ -2,7 +2,17 @@ const Post = require("../models/post")
 var { body, validationResult } = require("express-validator");
 
 exports.post_list = function (req, res, next) {
-  res.render("post_list");
+  Post.find().populate("user").exec(function (err, list_posts) {
+    if(err) {
+      return next(err)
+    }
+
+    res.render("post_list", {
+      title: "Posts List",
+      post_list: list_posts
+    });
+  })
+
 };
 
 exports.post_create_get = function (req, res, next) {
@@ -27,7 +37,7 @@ exports.post_create_post = [
       // Create a Post object with escaped and trimmed data.
       const post = new Post({
         title: req.body.title,
-        userId: req.user,
+        user: req.user,
         timestamp: Date.now(),
         content: req.body.content
       })

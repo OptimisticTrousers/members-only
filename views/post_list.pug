@@ -6,10 +6,11 @@ block styles
 block content
     section
         h1 Posts
-        article(class="post-excerpt")
-            h3(class="post-excerpt__title") minus ut consequatur
-            div(class="post-excerpt__details")
-                span(class="post-excerpt__author") by Carlos Altenwerth
-                span(class="post-excerpt__date") about 14 hours ago
-            p(class="post-excerpt__content") Placeat dolores consequuntur voluptatem. Ut architecto placeat et sapiente. Sed qui excepturi tenetu
-            a(class="post-excerpt__link") View Post
+        for post in post_list
+            article(class="post-excerpt")
+                h3(class="post-excerpt__title") #{post.title}
+                div(class="post-excerpt__details")
+                    span(class="post-excerpt__author") by #{post.user.firstName} #{post.user.lastName}
+                    span(class="post-excerpt__date") about #{post.timestamp}
+                p(class="post-excerpt__content") #{post.content}
+                a(class="post-excerpt__link" href=post.url) View Post
