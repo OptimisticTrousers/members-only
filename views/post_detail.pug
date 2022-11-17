@@ -13,4 +13,4 @@ block content
             p(class="post__content") #{post.content}
             div(class="post__links")
                 a(class="post__link post__link--edit") Edit Post
-                a(class="post__link post__link--delete") Delete Post
+                a(class="post__link post__link--delete" href=`${post.url}/delete`) Delete Post
