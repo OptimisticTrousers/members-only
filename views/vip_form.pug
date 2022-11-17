@@ -5,9 +5,12 @@ block styles
 
 block content
     section
-        form(class="form")
+        form(class="form" method="POST" action="")
             img(class="form__image" src="/images/vip.png")
-            label(class="form__label" for="code") Enter the passphrase to become a member of the club!
+            if membership
+                label(class="form__label" for="code") Enter the passphrase to become a member of the club!
+            else if admin
+                label(class="form__label" for="code") Enter the passphrase to become an admin of the club!
             input(class="form__control" id="code" name="code")
             button(class="form__button" type="submit") Join
     if errors 

@@ -9,7 +9,7 @@ exports.index = function (req, res, next) {
 
 exports.signup_get = function (req, res, next) {
   res.render("signup_form", {
-    title: "Sign Up"
+    title: "Sign Up",
   });
 };
 
@@ -62,7 +62,7 @@ exports.signup_post = [
 
 exports.login_get = function (req, res, next) {
   res.render("login_form", {
-    title: "Log In"
+    title: "Log In",
   });
 };
 
@@ -77,7 +77,8 @@ exports.logout_get = function (req, res, next) {
 
 exports.membership_get = function (req, res, next) {
   res.render("vip_form", {
-    title: "Membership Code"
+    title: "Membership Code",
+    membership: true
   });
 };
 
@@ -88,7 +89,13 @@ exports.membership_post = [
     // Extract validation errors from a request
     const errors = validationResult(req);
 
-    if (!errors.isEmpty()) {
+    if (!req.user) {
+      const error = new Error(
+        "You are not signed in! Please log in before entering your membership code!"
+      );
+      error.status = 401;
+      return next(error);
+    } else if (!errors.isEmpty()) {
       res.render("vip_form", {
         title: "Membership Code",
         errors: errors.array(),
@@ -101,7 +108,7 @@ exports.membership_post = [
           return next(err);
         }
         // Success
-        res.redirect("/posts")
+        res.redirect("/posts");
       });
     }
   },
@@ -109,7 +116,8 @@ exports.membership_post = [
 
 exports.admin_get = function (req, res, next) {
   res.render("vip_form", {
-    title: "Admin Code"
+    title: "Admin Code",
+    admin: true
   });
 };
 
@@ -120,7 +128,13 @@ exports.admin_post = [
     // Extract validation errors from a request
     const errors = validationResult(req);
 
-    if (!errors.isEmpty()) {
+    if (!req.user) {
+      const error = new Error(
+        "You are not signed in! Please log in before entering your admin code!"
+      );
+      error.status = 401;
+      return next(error);
+    } else if (!errors.isEmpty()) {
       res.render("vip_form", {
         title: "Admin Code",
         errors: errors.array(),
@@ -133,7 +147,7 @@ exports.admin_post = [
           return next(err);
         }
         // Success
-        res.redirect("/posts")
+        res.redirect("/posts");
       });
     }
   },

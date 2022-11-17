@@ -19,10 +19,14 @@ html(lang='en')
             a(class="header__link header__link--regular" href="/posts") Posts
           li(class="header__item")
             a(class="header__link header__link--regular" href="/posts/create") Create Post
+          li(class="header__item")
+            a(class="header__link header__link--regular" href="/membership") Membership
+          li(class="header__item")
+            a(class="header__link header__link--regular" href="/admin") Admin 
           if locals.isAuthenticated
+            li(class="header__item") Hello, #{locals.user.firstName} #{locals.user.lastName}
             li(class="header__item")
               a(class="header__link header__link--signup" href="/log-out") Sign Out
-            li(class="header__item") Hello, #{locals.user.firstName} #{locals.user.lastName}
           else
             li(class="header__item")
               a(class="header__link header__link--regular" href="/log-in") Log In

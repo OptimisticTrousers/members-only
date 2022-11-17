@@ -18,7 +18,7 @@ exports.post_list = function (req, res, next) {
 
 exports.post_create_get = function (req, res, next) {
   res.render("post_form", {
-    title: "Create Post"
+    title: "Create Post",
   });
 };
 
@@ -45,7 +45,11 @@ exports.post_create_post = [
       content: req.body.content,
     });
 
-    if (!errors.isEmpty()) {
+    if (!req.user) {
+      const error = new Error("You are not signed in! Please log in!");
+      error.status = 401;
+      return next(error);
+    } else if (!errors.isEmpty()) {
       // There are errors. Render the form again with sanitized values/error messages.
       res.render("post_form", {
         title: "Create Post",
@@ -111,6 +115,15 @@ exports.post_delete_get = function (req, res, next) {
 // Handle Post delete on POST.
 exports.post_delete_post = function (req, res, next) {
   // Assume valid Post id in field.
+
+  if (!req.user) {
+    const error = new Error(
+      "You are not an admin! If you are an admin, please log in!"
+    );
+    error.status = 401;
+    return next(error);
+  }
+
   Post.findByIdAndRemove(req.body.id, (err) => {
     if (err) {
       return next(err);

@@ -68,7 +68,7 @@ main {
   line-height: 70px;
 }
 
-.header__label{
+.header__label {
   margin: 0 40px 0 0;
   font-size: 100px;
   color: white;
@@ -94,10 +94,10 @@ main {
   margin: 0 5px;
 }
 
-.header__item:last-child {
-    border-bottom: none;
-    color: white;
-    font-family: "Kaleko";
+.header__item:nth-last-child(2) {
+  border-bottom: none;
+  color: white;
+  font-family: "Kaleko";
 }
 
 .header__image {
