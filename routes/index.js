@@ -31,7 +31,13 @@ router.get("/log-out", index_controller.logout_get);
 /* GET membership page. */
 router.get("/membership", index_controller.membership_get);
 
+/* POST membership page. */
+router.post("/membership", index_controller.membership_post);
+
 /* GET admin page. */
 router.get("/admin", index_controller.admin_get);
+
+/* POST admin page. */
+router.post("/admin", index_controller.admin_post);
 
 module.exports = router;

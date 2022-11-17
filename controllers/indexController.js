@@ -1,4 +1,5 @@
 const User = require("../models/user");
+const Post = require("../models/post");
 const { body, validationResult } = require("express-validator");
 const bcrypt = require("bcryptjs");
 
@@ -61,19 +62,71 @@ exports.login_get = function (req, res, next) {
   res.render("login_form");
 };
 
-exports.logout_get = function(req, res, next) {
-  req.logout(function(err) {
-    if(err) {
-      return next(err)
+exports.logout_get = function (req, res, next) {
+  req.logout(function (err) {
+    if (err) {
+      return next(err);
     }
-    res.redirect("/")
-  })
-}
+    res.redirect("/");
+  });
+};
 
 exports.membership_get = function (req, res, next) {
   res.render("vip_form");
 };
 
+exports.membership_post = [
+  // Process request after validation and sanitization.
+  body("code").trim().isLength({ min: 1 }).escape(),
+  (req, res, next) => {
+    // Extract validation errors from a request
+    const errors = validationResult(req);
+
+    if (!errors.isEmpty()) {
+      res.render("vip_form", {
+        title: "Membership Code",
+        errors: errors.array(),
+      });
+      return;
+    } else {
+      // Data from form is valid.
+      User.findByIdAndUpdate({ membershipStatus: true }, (err) => {
+        if (err) {
+          return next(err);
+        }
+        // Success
+        res.redirect("/posts")
+      });
+    }
+  },
+];
+
 exports.admin_get = function (req, res, next) {
   res.render("vip_form");
 };
+
+exports.admin_post = [
+  // Process request after validation and sanitization.
+  body("code").trim().isLength({ min: 1 }).escape(),
+  (req, res, next) => {
+    // Extract validation errors from a request
+    const errors = validationResult(req);
+
+    if (!errors.isEmpty()) {
+      res.render("vip_form", {
+        title: "Admin Code",
+        errors: errors.array(),
+      });
+      return;
+    } else {
+      // Data from form is valid.
+      User.findByIdAndUpdate({ membershipStatus: true }, (err) => {
+        if (err) {
+          return next(err);
+        }
+        // Success
+        res.redirect("/posts")
+      });
+    }
+  },
+];
