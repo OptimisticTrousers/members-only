@@ -16,7 +16,7 @@ block content
                         if membershipStatus
                             span(class="post__author") by #{post.user.firstName} #{post.user.lastName}
                             p(class="post__content") about
-                                span(class="post__date") #{post.timestamp}
+                                span(class="post__date")=post.timestamp
                         else
                             span(class="post__author") by #[strong Anonymous]
                             p(class="post__content") about

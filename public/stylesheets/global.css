@@ -161,7 +161,7 @@ a {
 @media only screen and (max-width: 930px) {
   /* https://www.youtube.com/watch?v=xMTs8tAapnQ */
   .header__label {
-    display: inline-block;
+    display: block;
     cursor: pointer;
     float: right;
     margin: 0 auto;
