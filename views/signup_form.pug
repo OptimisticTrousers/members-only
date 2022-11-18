@@ -8,13 +8,13 @@ block content
         h1 Sign up
         form(class="form" method="POST" action="")
             div(class="form__group")
-                input(id="firstName" name="firstName" class="form__control" required="true" placeholder="Bob")
+                input(id="firstName" name="firstName" class="form__control" required="true" placeholder="Bob" value=(user && user.firstName))
                 label(class="form__label" for="firstName") FIRST NAME
             div(class="form__group")
-                input(id="lastName" name="lastName" class="form__control" required="true" placeholder="Jones")
+                input(id="lastName" name="lastName" class="form__control" required="true" placeholder="Jones" value=(user && user.lastName))
                 label(class="form__label" for="lastName") LAST NAME
             div(class="form__group")
-                input(id="email" name="email" class="form__control" type="email" required="true" placeholder="you@domain.com")
+                input(id="email" name="email" class="form__control" type="email" required="true" placeholder="you@domain.com" value=(user && user.email))
                 label(class="form__label" for="email") EMAIL
             div(class="form__group")
                 input(id="password" name="password" class="form__control" type="password" required="true" placeholder="password")
