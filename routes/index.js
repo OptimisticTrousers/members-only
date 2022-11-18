@@ -22,8 +22,18 @@ router.post(
   passport.authenticate("local", {
     successRedirect: "/",
     failureRedirect: "/log-in",
+    successFlash: true,
+    failureFlash: true,
+    successMessage: "Success. You logged in!",
+    failureMessage: "Failure. Wrong username or password!"
   })
 );
+
+router.get("/error", function(req, res, next) {
+  res.render("error", {
+    error: req.flash("error")
+  })
+})
 
 /* GET log out page. */
 router.get("/log-out", index_controller.logout_get);

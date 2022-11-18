@@ -18,7 +18,7 @@ exports.signup_post = [
   // Validate and sanitize fields.
   body("firstName").trim().isLength({ min: 1 }).escape(),
   body("lastName").trim().isLength({ min: 1 }).escape(),
-  body("email").isEmail().normalizeEmail(),
+  body("email").isEmail().normalizeEmail({ gmail_remove_dots: false }),
   body("password").trim().isLength({ min: 1 }).escape(),
   // Process request after validation and sanitization.
   (req, res, next) => {
@@ -76,9 +76,8 @@ exports.logout_get = function (req, res, next) {
 };
 
 exports.membership_get = function (req, res, next) {
-  res.render("vip_form", {
+  res.render("membership_form", {
     title: "Membership Code",
-    membership: true
   });
 };
 
@@ -88,19 +87,22 @@ exports.membership_post = [
   (req, res, next) => {
     // Extract validation errors from a request
     const errors = validationResult(req);
-
     if (!req.user) {
       const error = new Error(
         "You are not signed in! Please log in before entering your membership code!"
       );
       error.status = 401;
       return next(error);
+    } else if (req.body.code !== process.env.MEMBERSHIP_CODE) {
+      res.render("membership_form", {
+        title: "Membership Code",
+        error: "Wrong code. Please try again.",
+      });
     } else if (!errors.isEmpty()) {
-      res.render("vip_form", {
+      res.render("membership_form", {
         title: "Membership Code",
         errors: errors.array(),
       });
-      return;
     } else {
       // Data from form is valid.
       User.findByIdAndUpdate({ membershipStatus: true }, (err) => {
@@ -115,9 +117,8 @@ exports.membership_post = [
 ];
 
 exports.admin_get = function (req, res, next) {
-  res.render("vip_form", {
+  res.render("admin_form", {
     title: "Admin Code",
-    admin: true
   });
 };
 
@@ -127,29 +128,25 @@ exports.admin_post = [
   (req, res, next) => {
     // Extract validation errors from a request
     const errors = validationResult(req);
-
-    if(req.body.code === "BobJones") {
-
-      res.render("vip_form", {
-        title: "Admin Code",
-        error: "Wrong code. Please try again."
-      })
-    }
-    else if (!req.user) {
+    if (!req.user) {
       const error = new Error(
         "You are not signed in! Please log in before entering your admin code!"
       );
       error.status = 401;
       return next(error);
+    } else if (req.body.code !== process.env.ADMIN_CODE) {
+      res.render("admin_form", {
+        title: "Admin Code",
+        error: "Wrong code. Please try again.",
+      });
     } else if (!errors.isEmpty()) {
-      res.render("vip_form", {
+      res.render("admin_form", {
         title: "Admin Code",
         errors: errors.array(),
       });
-      return;
     } else {
       // Data from form is valid.
-      User.findByIdAndUpdate({ membershipStatus: true }, (err) => {
+      User.findByIdAndUpdate({ admin: true }, (err) => {
         if (err) {
           return next(err);
         }
