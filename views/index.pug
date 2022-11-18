@@ -5,10 +5,20 @@ block styles
 
 block content
   section(class="home")
-    h2(class="home__welcome") Welcome to
-    h1(class="home__title")=title
-    p(class="home__description") You're moments away from the best, most innovative social messaging experience you've ever had
-    nav(class="home__navigation")
-      a(class="home__link home__link--blue" href="/sign-up") Sign Up
-      a(class="home__link home__link--white" href="/log-in") Log In
-      a(class="home__link home__link--black" href="/posts") View Posts
+    div(class="home__container")
+      h2(class="home__welcome") Welcome to
+      h1(class="home__title")=title
+      p(class="home__description") You're moments away from the best, most innovative social messaging experience you've ever had
+
+      div(class="home__info")
+        h3 Clubhouse Membership
+        p(class="") This is an exclusive clubhouse where ONLY members can see who wrote a post, while others may only wonder who wrote it.
+        p(class="") Members can join the club by entering a secret CODE through the navigation link, "Membership"
+      div(class="home__info")
+        h3 Clubhouse Admin
+        p(class="") If you are an admin, you will be able to delete any posts!
+        p(class="") Admins can become admins by entering a secret CODE through the navigation link, "Admin"
+      nav(class="home__navigation")
+        a(class="home__link home__link--blue" href="/sign-up") Sign Up
+        a(class="home__link home__link--white" href="/log-in") Log In
+        a(class="home__link home__link--black" href="/posts") View Posts
