@@ -47,5 +47,5 @@ Beyond that, other learning outcomes were:
 
 ## Known Bugs
 
-1. Users can enter the wrong email address, but the correct password and they will be logged in.
+1. Users can enter the wrong email address, but the correct password and they will be logged in - FIXED
 3. User cannot sign into another account once they sign into one
