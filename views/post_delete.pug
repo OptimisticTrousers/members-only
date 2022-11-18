@@ -4,27 +4,16 @@ block styles
     link(rel='stylesheet' href='/stylesheets/delete.css')
 
 block content
-    if true == false
-        div(class="error")
-            h1(class="error__title") #{title}: #{item.name}
+    div(class="delete")
+        div(class="delete__container")
+            h2(class="delete__header") Delete post?
 
-            p(class="error__description") #[strong Delete the following item instances before attempting to delete this item.]
+            p(class="delete__description") Are you sure you want to delete the post "#[strong #{post.title}]" by #{post.user.firstName} #{post.user.lastName}?
 
-            ul(class="error__list")
-            each instance in item_instances
-                li(class="error__item")
-                    a(class="error__link" href=instance.url) #{instance._id}
-    else
-        div(class="delete")
-            div(class="delete__container")
-                h2(class="delete__header") Delete post?
+            p(class="delete__description") You can't undo this action.
 
-                p(class="delete__description") Are you sure you want to delete the post "#[strong #{post.title}]" by #{post.user.firstName} #{post.user.lastName}?
+            form(method='POST' action='')
+                div(class="form__group")
+                    input(id="id" class="form__control" type="hidden" name="id" required="true" value=post._id)
 
-                p(class="delete__description") You can't undo this action.
-
-                form(method='POST' action='')
-                    div(class="form__group")
-                        input(id="id" class="form__control" type="hidden" name="id" required="true" value=post._id)
-
-                    button(class="form__button" type="submit") Delete
+                button(class="form__button" type="submit") Delete
