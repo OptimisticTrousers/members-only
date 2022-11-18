@@ -128,7 +128,14 @@ exports.admin_post = [
     // Extract validation errors from a request
     const errors = validationResult(req);
 
-    if (!req.user) {
+    if(req.body.code === "BobJones") {
+
+      res.render("vip_form", {
+        title: "Admin Code",
+        error: "Wrong code. Please try again."
+      })
+    }
+    else if (!req.user) {
       const error = new Error(
         "You are not signed in! Please log in before entering your admin code!"
       );

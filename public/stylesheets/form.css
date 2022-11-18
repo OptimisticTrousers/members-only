@@ -33,6 +33,10 @@ h1 {
     resize: vertical;
 }
 
+.form__control:invalid {
+    border-bottom: 2px solid red;
+}
+
 .form__control:focus-visible {
     outline: none;
     border-bottom: 3px solid #78d7ba;
@@ -53,6 +57,11 @@ h1 {
 
 .form__already {
     color: #318c77;
+    font-weight: 600;
+}
+
+.form__error {
+    color: rgb(95, 33, 32);
     font-weight: 600;
 }
 
