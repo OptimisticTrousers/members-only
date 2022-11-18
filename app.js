@@ -1,4 +1,5 @@
 var createError = require("http-errors");
+var flash = require("connect-flash");
 var express = require("express");
 var path = require("path");
 var cookieParser = require("cookie-parser");
@@ -27,10 +28,11 @@ db.on("error", console.error.bind(console, "mongo connection error"));
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "pug");
 
+app.use(flash());
 app.use(
   session({
     secret: process.env.SECRET,
-    resave: true,
+    resave: false,
     saveUninitialized: true,
     cookie: {
       maxAge: 1000 * 60 * 60 * 24,
