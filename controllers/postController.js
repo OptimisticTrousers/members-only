@@ -1,4 +1,5 @@
 const Post = require("../models/post");
+const dayjs = require("dayjs");
 var { body, validationResult } = require("express-validator");
 
 exports.post_list = function (req, res, next) {
@@ -42,7 +43,7 @@ exports.post_create_post = [
     const post = new Post({
       title: req.body.title,
       user: req.user,
-      timestamp: Date.now(),
+      timestamp: dayjs(),
       content: req.body.content,
     });
 

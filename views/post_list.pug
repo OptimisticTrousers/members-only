@@ -8,10 +8,17 @@ block content
         h1 Posts
         for post in post_list
             article(class="post-excerpt")
-                h3(class="post-excerpt__title") #{post.title}
-                div(class="post-excerpt__details")
-                    if membershipStatus
-                        span(class="post-excerpt__author") by #{post.user.firstName} #{post.user.lastName}
-                        span(class="post-excerpt__date") about #{post.timestamp}
-                p(class="post-excerpt__content") #{post.content}
-                a(class="post-excerpt__link" href=post.url) View Post
+                div(class="post-excerpt__image-container")
+                    img(class="post-excerpt__image" src="/images/optimistictrousers.jpg")
+                div(class="post-excerpt__container")
+                    h3(class="post-excerpt__title") #{post.title}
+                    div(class="post-excerpt__details")
+                        if membershipStatus
+                            span(class="post-excerpt__author") by #{post.user.firstName} #{post.user.lastName}
+                            p(class="post-excerpt__content") about
+                                span(class="post-excerpt__date") #{post.timestamp}
+                        else
+                            span(class="post-excerpt__author") by #[strong Anonymous]
+                            span(class="post-excerpt__date") about N/A
+                    p(class="post-excerpt__content") #{post.content}
+                    a(class="post-excerpt__link" href=post.url) View Post

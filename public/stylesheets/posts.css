@@ -1,50 +1,79 @@
 section {
-    margin-top: 4rem;
-    min-height: 100%;
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 0 1rem;
+  margin-top: 4rem;
+  min-height: 100%;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 1rem;
 }
 
 .post-excerpt {
-    padding: 0.75rem;
-    border: 1px solid rgb(188, 174, 174);
-    border-radius: 7px;
-    background-color: white;
-    margin-top: 0.5rem;
-    height: fit-content;
+  padding: 0.75rem;
+  border: 1px solid rgb(188, 174, 174);
+  border-radius: 7px;
+  background-color: white;
+  margin-top: 0.5rem;
+  height: fit-content;
+  display: flex;
+}
+
+.post-excerpt__container {
+  flex: 1;
+}
+
+.post-excerpt__image-container {
+  width: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.post-excerpt__image {
+  width: 130px;
+  height: 130px;
+  border-radius: 100%;
+  background-position: center;
+  background-size: cover;
+  text-align: center;
+}
+
+.post-excerpt__details {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 1rem;
+  padding-top: 1rem;
+  border-bottom: 1px solid lightgrey;
 }
 
 .post-excerpt__title {
-    margin: 0;
-    font-size: 2rem;
+  margin: 0;
+  font-size: 2rem;
 }
 
 .post-excerpt__content {
-    margin-top: 10px;
+  margin-top: 10px;
 }
 
 .post-excerpt__date {
-    margin-left: 8px;
-    font-style: italic;
+  margin-left: 8px;
+  font-style: italic;
 }
 
 .post-excerpt__link {
-    display: inline-block;
-    background: transparent;
-    border: 1px solid #cdcdcd;
-    color: #4e4e4e;
-    font-weight: 600;
-    border-radius: 4px;
-    padding: 0.75rem 1.25rem;
-    font-size: 1rem;
-    text-transform: none;
-    vertical-align: middle;
-    cursor: pointer;
-    margin-right: auto;
+  display: inline-block;
+  background: transparent;
+  border: 1px solid #cdcdcd;
+  color: #4e4e4e;
+  font-weight: 600;
+  border-radius: 4px;
+  padding: 0.75rem 1.25rem;
+  font-size: 1rem;
+  text-transform: none;
+  vertical-align: middle;
+  cursor: pointer;
+  margin-right: auto;
 }
 
 .post-excerpt__link:hover {
-    border: 1px solid #818181;
+  border: 1px solid #818181;
 }
