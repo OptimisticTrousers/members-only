@@ -18,6 +18,10 @@ section {
     border-radius: 12px;
 }
 
+.form__error {
+    color: red;
+}
+
 .form__image {
     width: 300px;
     margin: 0 auto;
