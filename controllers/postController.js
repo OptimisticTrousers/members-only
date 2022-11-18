@@ -120,7 +120,7 @@ exports.post_delete_get = function (req, res, next) {
 exports.post_delete_post = function (req, res, next) {
   // Assume valid Post id in field.
 
-  if (!req.user) {
+  if (!req.user.admin) {
     const error = new Error(
       "You are not an admin! If you are an admin, please log in!"
     );

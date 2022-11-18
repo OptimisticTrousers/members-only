@@ -54,6 +54,10 @@ main {
   align-items: center;
 }
 
+.error {
+  padding: 2rem;
+}
+
 .header__welcome {
   color: white;
   font-family: "Kaleko";
