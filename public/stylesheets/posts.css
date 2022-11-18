@@ -7,7 +7,7 @@ section {
   padding: 0 1rem;
 }
 
-.post-excerpt {
+.post {
   padding: 0.75rem;
   border: 1px solid rgb(188, 174, 174);
   border-radius: 7px;
@@ -17,18 +17,18 @@ section {
   display: flex;
 }
 
-.post-excerpt__container {
+.post__container {
   flex: 1;
 }
 
-.post-excerpt__image-container {
+.post__image-container {
   width: 200px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.post-excerpt__image {
+.post__image {
   width: 130px;
   height: 130px;
   border-radius: 100%;
@@ -37,33 +37,33 @@ section {
   text-align: center;
 }
 
-.post-excerpt__details {
+.post__details {
   display: flex;
   justify-content: space-between;
-  padding-bottom: 1rem;
-  padding-top: 1rem;
+  padding-bottom: 0.5rem;
+  align-items: center;
+  padding-top: 0.5rem;
   border-bottom: 1px solid lightgrey;
 }
 
-.post-excerpt__title {
+.post__title {
   margin: 0;
   font-size: 2rem;
 }
 
-.post-excerpt__content {
+.post__content {
   margin-top: 10px;
 }
 
-.post-excerpt__date {
+.post__date {
   margin-left: 8px;
   font-style: italic;
 }
 
-.post-excerpt__link {
+.post__link {
   display: inline-block;
   background: transparent;
   border: 1px solid #cdcdcd;
-  color: #4e4e4e;
   font-weight: 600;
   border-radius: 4px;
   padding: 0.75rem 1.25rem;
@@ -71,9 +71,18 @@ section {
   text-transform: none;
   vertical-align: middle;
   cursor: pointer;
-  margin-right: auto;
+  color: white;
 }
 
-.post-excerpt__link:hover {
+.post__link:hover {
   border: 1px solid #818181;
+}
+
+.post__link--delete {
+  background-color: #dc6068;
+  border: 1px solid #dc6068;
+}
+
+.post__link--delete:hover {
+  background-color: #f16770;
 }

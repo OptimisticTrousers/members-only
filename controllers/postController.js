@@ -14,6 +14,7 @@ exports.post_list = function (req, res, next) {
         title: "Posts List",
         post_list: list_posts,
         membershipStatus: req.user?.membershipStatus,
+        admin: req.user?.admin,
       });
     });
 };
@@ -74,29 +75,6 @@ exports.post_create_post = [
     }
   },
 ];
-
-exports.post_detail = function (req, res, next) {
-  Post.findById(req.params.id)
-    .populate("user")
-    .exec(function (err, post) {
-      if (err) {
-        return next(err);
-      }
-      if (post == null) {
-        // No results.
-        var err = new Error("Post not found");
-        err.status = 404;
-        return next(err);
-      }
-      // Successful, so render.
-      res.render("post_detail", {
-        title: `Post: ${post.title}`,
-        post,
-        membershipStatus: req.user?.membershipStatus,
-        admin: req.user?.admin,
-      });
-    });
-};
 
 exports.post_delete_get = function (req, res, next) {
   Post.findById(req.params.id)

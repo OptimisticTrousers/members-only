@@ -7,18 +7,20 @@ block content
     section
         h1 Posts
         for post in post_list
-            article(class="post-excerpt")
-                div(class="post-excerpt__image-container")
-                    img(class="post-excerpt__image" src="/images/optimistictrousers.jpg")
-                div(class="post-excerpt__container")
-                    h3(class="post-excerpt__title") #{post.title}
-                    div(class="post-excerpt__details")
+            article(class="post")
+                div(class="post__image-container")
+                    img(class="post__image" src="/images/optimistictrousers.jpg")
+                div(class="post__container")
+                    h3(class="post__title") #{post.title}
+                    div(class="post__details")
                         if membershipStatus
-                            span(class="post-excerpt__author") by #{post.user.firstName} #{post.user.lastName}
-                            p(class="post-excerpt__content") about
-                                span(class="post-excerpt__date") #{post.timestamp}
+                            span(class="post__author") by #{post.user.firstName} #{post.user.lastName}
+                            p(class="post__content") about
+                                span(class="post__date") #{post.timestamp}
                         else
-                            span(class="post-excerpt__author") by #[strong Anonymous]
-                            span(class="post-excerpt__date") about N/A
-                    p(class="post-excerpt__content") #{post.content}
-                    a(class="post-excerpt__link" href=post.url) View Post
+                            span(class="post__author") by #[strong Anonymous]
+                            p(class="post__content") about
+                                span(class="post__date") N/A
+                    p(class="post__content") #{post.content}
+                    if admin
+                        a(class="post__link post__link--delete" href=`${post.url}/delete`) Delete Post
