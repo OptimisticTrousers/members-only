@@ -46,7 +46,6 @@ exports.signup_post = [
           user,
           errors: errors.array(),
         });
-        return;
       } else {
         user.save(function (err) {
           if (err) {
@@ -63,6 +62,7 @@ exports.signup_post = [
 exports.login_get = function (req, res, next) {
   res.render("login_form", {
     title: "Log In",
+    flash: req.session.flash
   });
 };
 
@@ -105,7 +105,7 @@ exports.membership_post = [
       });
     } else {
       // Data from form is valid.
-      User.findByIdAndUpdate({ membershipStatus: true }, (err) => {
+      User.findByIdAndUpdate(req.user, { membershipStatus: true }, (err) => {
         if (err) {
           return next(err);
         }
@@ -146,7 +146,7 @@ exports.admin_post = [
       });
     } else {
       // Data from form is valid.
-      User.findByIdAndUpdate({ admin: true }, (err) => {
+      User.findByIdAndUpdate(req.user, { admin: true }, (err) => {
         if (err) {
           return next(err);
         }

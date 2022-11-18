@@ -13,8 +13,9 @@ block content
             div(class="form__group")
                 input(id="password" name="password" class="form__control" type="password" required="true" placeholder="password")
                 label(class="form__label" for="password") PASSWORD
-            if error
-                p(class="form__error")=error
+            if flash
+                for error in flash.error
+                    p(class="form__error")=error
             button(class="form__button" type="submit") Log In
             div(class="form__container")
                 span(class="form__already") Don't have an account?
