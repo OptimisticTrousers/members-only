@@ -62,7 +62,7 @@ exports.signup_post = [
 exports.login_get = function (req, res, next) {
   res.render("login_form", {
     title: "Log In",
-    flash: req.session.flash
+    flash: req.session.flash,
   });
 };
 
@@ -93,6 +93,11 @@ exports.membership_post = [
       );
       error.status = 401;
       return next(error);
+    } else if (req.user.membershipStatus) {
+      res.render("membership_form", {
+        title: "Membership Code",
+        error: "You are already a member!",
+      });
     } else if (req.body.code !== process.env.MEMBERSHIP_CODE) {
       res.render("membership_form", {
         title: "Membership Code",
@@ -134,6 +139,11 @@ exports.admin_post = [
       );
       error.status = 401;
       return next(error);
+    } else if (req.user.admin) {
+      res.render("admin_form", {
+        title: "Admin Code",
+        error: "You are already an admin!",
+      });
     } else if (req.body.code !== process.env.ADMIN_CODE) {
       res.render("admin_form", {
         title: "Admin Code",
