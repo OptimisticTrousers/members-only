@@ -72,7 +72,7 @@ exports.signup_post = [
 ];
 
 exports.login_get = function (req, res, next) {
-  const errors = req.session.flash?.map((msg) => ({ msg }));
+  const errors = req.session.flash?.error.map((msg) => ({ msg }));
   res.render("login_form", {
     title: "Log In",
     errors,
