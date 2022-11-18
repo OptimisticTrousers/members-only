@@ -1,7 +1,7 @@
 extends layout
 
 block styles
-    link(rel="stylesheet", href="/stylesheets/form.css")
+    link(rel="stylesheet" href="/stylesheets/form.css")
 
 block content
     section
@@ -13,8 +13,8 @@ block content
             div(class="form__group")
                 textarea(id="content" name="content" class="form__control" required="true" placeholder="Cereal is a...")
                 label(class="form__label" for="password") Content
+            if errors 
+                ul
+                for error in errors
+                    li(class="form__error")!=error.msg
             button(class="form__button" type="submit") Submit
-    if errors 
-        ul
-        for error in errors
-            li!= error.msg

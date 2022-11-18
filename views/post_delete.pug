@@ -7,13 +7,9 @@ block content
     div(class="delete")
         div(class="delete__container")
             h2(class="delete__header") Delete post?
-
             p(class="delete__description") Are you sure you want to delete the post "#[strong #{post.title}]" by #{post.user.firstName} #{post.user.lastName}?
-
             p(class="delete__description") You can't undo this action.
-
             form(method='POST' action='')
                 div(class="form__group")
                     input(id="id" class="form__control" type="hidden" name="id" required="true" value=post._id)
-
                 button(class="form__button" type="submit") Delete

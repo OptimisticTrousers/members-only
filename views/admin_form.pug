@@ -1,18 +1,16 @@
 extends layout
 
 block styles
-    link(rel="stylesheet", href="/stylesheets/vip.css")
+    link(rel="stylesheet" href="/stylesheets/vip.css")
 
 block content
     section
         form(class="form" method="POST" action="")
             img(class="form__image" src="/images/vip.png")
             label(class="form__label" for="code") Enter the passphrase to become an admin of the club!
-            if error 
-                p(class="form__error")=error
+            if errors 
+                ul
+                for error in errors
+                    li(class="form__error")!=error.msg
             input(class="form__control" id="code" name="code")
             button(class="form__button" type="submit") Join
-    if errors 
-        ul
-        for error in errors
-            li!= error.msg
