@@ -11,6 +11,7 @@ section {
 }
 
 .post{
+    width: 100%;
     padding: 0.75rem;
     border: 1px solid rgb(188, 174, 174);
     border-radius: 7px;

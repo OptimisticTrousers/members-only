@@ -12,6 +12,7 @@ exports.post_list = function (req, res, next) {
       res.render("post_list", {
         title: "Posts List",
         post_list: list_posts,
+        membershipStatus: req.user?.membershipStatus,
       });
     });
 };
@@ -90,6 +91,8 @@ exports.post_detail = function (req, res, next) {
       res.render("post_detail", {
         title: `Post: ${post.title}`,
         post,
+        membershipStatus: req.user?.membershipStatus,
+        admin: req.user?.admin,
       });
     });
 };

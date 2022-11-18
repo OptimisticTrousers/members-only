@@ -1,17 +1,17 @@
 extends layout
 
 block styles
-    link(rel="stylesheet", href="/stylesheets/detail.css")
+    link(rel="stylesheet" href="/stylesheets/detail.css")
 
 block content
     section
         article(class="post")
             h3(class="post__title") #{post.title}
             div(class="post__details")
-                if post.user.membershipStatus
+                if membershipStatus
                     span(class="post__author") by #{post.user.firstName} #{post.user.lastName}
                     span(class="post__date") about #{post.timestamp}
             p(class="post__content") #{post.content}
             div(class="post__links")
-                if post.user.admin
+                if admin
                     a(class="post__link post__link--delete" href=`${post.url}/delete`) Delete Post

@@ -1,7 +1,7 @@
 extends layout
 
 block styles
-    link(rel="stylesheet", href="/stylesheets/posts.css")
+    link(rel="stylesheet" href="/stylesheets/posts.css")
 
 block content
     section
@@ -10,7 +10,7 @@ block content
             article(class="post-excerpt")
                 h3(class="post-excerpt__title") #{post.title}
                 div(class="post-excerpt__details")
-                    if post.user.membershipStatus
+                    if membershipStatus
                         span(class="post-excerpt__author") by #{post.user.firstName} #{post.user.lastName}
                         span(class="post-excerpt__date") about #{post.timestamp}
                 p(class="post-excerpt__content") #{post.content}
