@@ -43,8 +43,10 @@ Beyond that, other learning outcomes were:
 ## Areas for Improvement
 
 * [ ] Create a "Show Password" section in the sign up form or a "Confirm Password" field.
-* [ ] Check the database to see if another user has used the same email address
+* [x] Check the database to see if another user has used the same email address
 
 ## Known Bugs
 
-1. None identified so far
+1. Users can enter the wrong email address, but the correct password and they will be logged in.
+2. User refreshing the page will log them out
+3. User cannot sign into another account once they sign into one
