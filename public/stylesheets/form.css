@@ -91,6 +91,10 @@ h1 {
     background-color: #ff7276;
 }
 
+ul {
+    margin-bottom: 1rem;
+}
+
 @media(max-width: 520px) {
     .form {
         width: 95%;

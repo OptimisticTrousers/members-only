@@ -15,8 +15,8 @@ block content
                 label(class="form__label" for="password") PASSWORD
             if errors 
                 ul
-                for error in errors
-                    li(class="form__error")!=error.msg
+                    for error in errors
+                        li(class="form__error")!=error.msg
             button(class="form__button" type="submit") Log In
             div(class="form__container")
                 span(class="form__already") Don't have an account?
