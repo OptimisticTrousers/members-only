@@ -46,9 +46,10 @@ exports.post_create_post = [
     });
 
     if (!req.user) {
-      const error = new Error("You are not signed in! Please log in!");
-      error.status = 401;
-      return next(error);
+      res.render("post_form", {
+        title: "Create Post",
+        errors: [{ msg: "You are not signed in! Please log in!" }],
+      });
     } else if (!errors.isEmpty()) {
       // There are errors. Render the form again with sanitized values/error messages.
       res.render("post_form", {
