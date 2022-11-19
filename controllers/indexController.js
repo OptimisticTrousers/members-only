@@ -23,7 +23,7 @@ exports.signup_post = [
     .normalizeEmail({ gmail_remove_dots: false })
     .custom(async (value) => {
       try {
-        const user = await User.findOne({ username: value });
+        const user = await User.findOne({ email: value });
         if (user) {
           return Promise.reject("E-mail already in use");
         }
@@ -37,6 +37,8 @@ exports.signup_post = [
     // Extract validation errors from a request.
     const errors = validationResult(req);
 
+    console.log(req.body)
+
     bcrypt.hash(req.body.password, 10, (err, hashedPassword) => {
       if (err) {
         return next(err);
@@ -47,6 +49,7 @@ exports.signup_post = [
         lastName: req.body.lastName,
         email: req.body.email,
         password: hashedPassword,
+        avatar: req.body.avatar,
         membershipStatus: false,
         admin: false,
       });

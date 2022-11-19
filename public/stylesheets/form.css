@@ -1,108 +1,167 @@
 section {
-    min-height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 h1 {
-    color: #ffffff;
-    font-size: 3rem;
-    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+  color: #ffffff;
+  font-size: 3rem;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
 }
 
 .form {
-    background-color: white;
-    border-top: 10px solid #fec9cb;
-    border-radius: 8px;
-    padding: 4rem;
-    box-shadow: 0 0 7px 0 rgba(0, 0, 0, 0.7);
+  background-color: white;
+  border-top: 10px solid #fec9cb;
+  border-radius: 8px;
+  padding: 4rem;
+  box-shadow: 0 0 7px 0 rgba(0, 0, 0, 0.7);
 }
 
 .form__group {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .form__control {
-    font-size: 2rem;
-    border: none;
-    border-bottom: 2px solid #c5f9e2;
-    padding: 10px;
-    resize: vertical;
+  font-size: 2rem;
+  border: none;
+  border-bottom: 2px solid #c5f9e2;
+  padding: 10px;
+  resize: vertical;
 }
 
 .form__control:invalid {
-    border-bottom: 2px solid red;
+  border-bottom: 2px solid red;
 }
 
 .form__control:focus-visible {
-    outline: none;
-    border-bottom: 3px solid #78d7ba;
+  outline: none;
+  border-bottom: 3px solid #78d7ba;
 }
 
 .form__label {
-    color: #78d7ba;
-    padding: 10px 20px;
-    font-weight: 900;
+  color: #78d7ba;
+  padding: 10px 20px;
+  font-weight: 900;
 }
 
 .form__container {
-    margin-top: 8px;
-    display: flex;
-    justify-content: center;
-    gap: 4px;
+  margin-top: 8px;
+  display: flex;
+  justify-content: center;
+  gap: 4px;
 }
 
 .form__already {
-    color: #318c77;
-    font-weight: 600;
+  color: #318c77;
+  font-weight: 600;
 }
 
 .form__error {
-    color: rgb(95, 33, 32);
-    font-weight: 600;
+  color: rgb(95, 33, 32);
+  font-weight: 600;
 }
 
 .form__link {
-    color: #f47c80;
-    font-weight: 900;
-    cursor: pointer;
+  color: #f47c80;
+  font-weight: 900;
+  cursor: pointer;
 }
 
 .form__link:hover {
-    color: #c5575a;
+  color: #c5575a;
+}
+
+.form__avatar {
+  width: 90px;
+  height: 90px;
+  border-radius: 10%;
+  border: 5px solid rgba(255, 255, 255, 0);
+  background-position: bottom;
+  background-size: cover;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  margin: 0 1em;
+}
+
+.form__avatars {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(106px, 1fr));
+  justify-items: center;
+  align-items: center;
+  overflow: scroll;
+  margin: 0.25em 0;
+  border-radius: 8px;
+}
+
+legend {
+  color: #78d7ba;
+  font-weight: 900;
+}
+
+.form__avatars input:checked + .form__avatar {
+  border: 5px solid #78d7ba;
+}
+
+.form__avatars input {
+  display: none;
+}
+
+.roblox {
+  background-image: url(../images/roblox.png);
+}
+
+.elmo {
+  background-image: url(../images/elmo.webp);
+}
+
+.jerry {
+  background-image: url(../images/jerry.webp);
+}
+
+.shrek {
+  background-image: url(../images/shrek.webp);
+}
+
+.peppa {
+  background-image: url(../images/peppa.webp);
+}
+
+.optimistic {
+  background-image: url(../images/optimistictrousers.jpg);
 }
 
 .form__button {
-    margin-top: 30px;
-    background-color: #f2666b;
-    color: white;
-    padding: 0.85rem 1rem;
-    width: 100%;
-    border-radius: 50px;
-    border: none;
-    font-size: 1.75rem;
-    cursor: pointer;
+  margin-top: 30px;
+  background-color: #f2666b;
+  color: white;
+  padding: 0.85rem 1rem;
+  width: 100%;
+  border-radius: 50px;
+  border: none;
+  font-size: 1.75rem;
+  cursor: pointer;
 }
 
 .form__button:hover {
-    background-color: #ff7276;
+  background-color: #ff7276;
 }
 
 ul {
-    margin-bottom: 1rem;
+  margin-bottom: 1rem;
 }
 
-@media(max-width: 520px) {
-    .form {
-        width: 95%;
-        box-sizing: border-box;
-        padding: 2rem;
-    }
-    .form__container {
-        flex-direction: column;
-        align-items: center;
-    }
+@media (max-width: 520px) {
+  .form {
+    width: 95%;
+    box-sizing: border-box;
+    padding: 2rem;
+  }
+  .form__container {
+    flex-direction: column;
+    align-items: center;
+  }
 }

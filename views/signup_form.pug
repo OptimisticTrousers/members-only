@@ -1,7 +1,7 @@
 extends layout
 
 block styles
-    link(rel="stylesheet", href="/stylesheets/form.css")
+    link(rel="stylesheet" href="/stylesheets/form.css")
 
 block content
     section
@@ -19,6 +19,20 @@ block content
             div(class="form__group")
                 input(id="password" name="password" class="form__control" type="password" required="true" placeholder="password")
                 label(class="form__label" for="password") PASSWORD
+            fieldset(class="form__avatars" required="true")
+                legend CHOOSE YOUR AVATAR
+                input(type="radio" name="avatar" id="roblox" value="roblox" required)
+                label(class="form__avatar roblox" for="roblox")
+                input(type="radio" name="avatar" id="shrek" value="shrek" required)
+                label(class="form__avatar shrek" for="shrek")
+                input(type="radio" name="avatar" id="peppa" value="peppa" required)
+                label(class="form__avatar peppa" for="peppa")
+                input(type="radio" name="avatar" id="elmo" value="elmo" required)
+                label(class="form__avatar elmo" for="elmo")
+                input(type="radio" name="avatar" id="jerry" value="jerry" required)
+                label(class="form__avatar jerry" for="jerry")
+                input(type="radio" name="avatar" id="optimistic" value="optimistic" required)
+                label(class="form__avatar optimistic" for="optimistic")
             if errors 
                 ul
                     for error in errors

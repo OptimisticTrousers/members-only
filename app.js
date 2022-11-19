@@ -27,7 +27,11 @@ db.on("error", console.error.bind(console, "mongo connection error"));
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "pug");
-
+app.use(logger("dev"));
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+app.use(cookieParser());
+app.use(express.static(path.join(__dirname, "public")));
 app.use(flash());
 app.use(
   session({
@@ -41,8 +45,8 @@ app.use(
 );
 
 passport.use(
-  new LocalStrategy((username, password, done) => {
-    User.findOne({ email: username }, (err, user) => {
+  new LocalStrategy({ usernameField: "email" }, (email, password, done) => {
+    User.findOne({ email }, (err, user) => {
       if (err) {
         return done(err);
       }
@@ -74,11 +78,6 @@ passport.deserializeUser(function (id, done) {
 
 app.use(passport.initialize());
 app.use(passport.session());
-app.use(logger("dev"));
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
-app.use(express.static(path.join(__dirname, "public")));
 app.use(function (req, res, next) {
   res.locals.isAuthenticated = req.isAuthenticated();
   res.locals.user = req.user;
