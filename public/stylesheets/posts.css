@@ -86,3 +86,14 @@ section {
 .post__link--delete:hover {
   background-color: #f16770;
 }
+
+@media (max-width: 570px) {
+  .post {
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+  .post__image {
+    border: 2px solid black;
+  }
+}
