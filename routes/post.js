@@ -1,7 +1,7 @@
-var express = require("express");
-var router = express.Router();
+const express = require("express");
+const router = express.Router();
 
-var post_controller = require("../controllers/postController");
+const post_controller = require("../controllers/postController");
 
 /* GET request for list of all posts. */
 router.get("/", post_controller.post_list);

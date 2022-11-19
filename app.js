@@ -1,27 +1,29 @@
-var createError = require("http-errors");
-var flash = require("connect-flash");
-var express = require("express");
-var path = require("path");
-var cookieParser = require("cookie-parser");
-var logger = require("morgan");
-var session = require("express-session");
-var passport = require("passport");
-var LocalStrategy = require("passport-local").Strategy;
-var mongoose = require("mongoose");
+const createError = require("http-errors");
+const flash = require("connect-flash");
+const express = require("express");
+const path = require("path");
+const cookieParser = require("cookie-parser");
+const logger = require("morgan");
+const session = require("express-session");
+const passport = require("passport");
+const LocalStrategy = require("passport-local").Strategy;
+const mongoose = require("mongoose");
+const helmet = require("helmet");
+const compression = require("compression");
 require("dotenv").config();
-var bcrypt = require("bcryptjs");
+const bcrypt = require("bcryptjs");
 
-var indexRouter = require("./routes/index");
-var postRouter = require("./routes/post");
+const indexRouter = require("./routes/index");
+const postRouter = require("./routes/post");
 
-var User = require("./models/user");
+const User = require("./models/user");
 
-var app = express();
+const app = express();
 
-var mongoDb = process.env.DB_STRING;
+const mongoDb = process.env.DB_STRING;
 
 mongoose.connect(mongoDb, { useNewUrlParser: true, useUnifiedTopology: true });
-var db = mongoose.connection;
+const db = mongoose.connection;
 db.on("error", console.error.bind(console, "mongo connection error"));
 
 // view engine setup
@@ -84,6 +86,8 @@ app.use(function (req, res, next) {
   res.locals.user = req.user;
   next();
 });
+app.use(helmet());
+app.use(compression());
 
 app.use("/", indexRouter);
 app.use("/posts", postRouter);

@@ -1,7 +1,7 @@
 const Post = require("../models/post");
 const dayjs = require("dayjs");
 const relativeTime = require("dayjs/plugin/relativeTime");
-var { body, validationResult } = require("express-validator");
+const { body, validationResult } = require("express-validator");
 
 dayjs.extend(relativeTime);
 
@@ -13,7 +13,10 @@ exports.post_list = function (req, res, next) {
         return next(err);
       }
 
-      const updatedPosts = list_posts.map((post) => ({...post.toObject(), timestamp: dayjs(post.timestamp).fromNow()}))
+      const updatedPosts = list_posts.map((post) => ({
+        ...post.toObject(),
+        timestamp: dayjs(post.timestamp).fromNow(),
+      }));
 
       // const updatedPosts = list_posts.map((post) => ({...post, timestamp: dayjs(post.timestamp).fromNow()}))
 

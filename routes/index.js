@@ -1,8 +1,8 @@
-var express = require("express");
-var router = express.Router();
-var passport = require("passport");
+const express = require("express");
+const router = express.Router();
+const passport = require("passport");
 
-var index_controller = require("../controllers/indexController");
+const index_controller = require("../controllers/indexController");
 
 /* GET home page. */
 router.get("/", index_controller.index);
@@ -24,7 +24,7 @@ router.post(
     failureRedirect: "/log-in",
     successFlash: true,
     failureFlash: true,
-  }),
+  })
 );
 /* GET log out page. */
 router.get("/log-out", index_controller.logout_get);
