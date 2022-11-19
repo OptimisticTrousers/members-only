@@ -34,4 +34,4 @@ block content
                                 span(class="post__date") Hidden
                     p(class="post__content") #{post.content}
                     if admin
-                        a(class="post__link post__link--delete" href=`${post.url}/delete`) Delete Post
+                        a(class="post__link post__link--delete" href=`/posts/${post._id}/delete`) Delete Post

@@ -11,8 +11,4 @@ const UserSchema = new Schema({
   avatar: { type: String, required: true },
 });
 
-UserSchema.virtual("url").get(function () {
-  return `/category/${this._id}`;
-});
-
 module.exports = mongoose.model("User", UserSchema);

@@ -8,8 +8,4 @@ const PostSchema = new Schema({
   content: { type: String, required: true },
 });
 
-PostSchema.virtual("url").get(function () {
-  return `/posts/${this._id}`;
-});
-
 module.exports = mongoose.model("Post", PostSchema);
