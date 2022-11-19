@@ -53,7 +53,7 @@
 @media(max-width: 858px) {
     .delete, .error {
         margin-top: 10rem;
-        margin-left: 0.5rem;
-        margin-right: 0.5rem;
+        margin-left: 2rem;
+        margin-right: 2rem;
     }
 }
