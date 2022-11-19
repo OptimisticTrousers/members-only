@@ -79,7 +79,7 @@ exports.post_create_post = [
           return next(err);
         }
         // Successful - redirect to new author record
-        res.redirect(post.url);
+        res.redirect("/posts");
       });
     }
   },

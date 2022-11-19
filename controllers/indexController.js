@@ -37,7 +37,7 @@ exports.signup_post = [
     // Extract validation errors from a request.
     const errors = validationResult(req);
 
-    console.log(req.body)
+    console.log(req.body);
 
     bcrypt.hash(req.body.password, 10, (err, hashedPassword) => {
       if (err) {
@@ -66,8 +66,8 @@ exports.signup_post = [
           if (err) {
             return next(err);
           }
-          // Successful - redirect to home page
-          res.redirect("/");
+          // Successful - redirect to the log in page
+          res.redirect("/log-in");
         });
       }
     });

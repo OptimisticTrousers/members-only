@@ -9,7 +9,17 @@ block content
         for post in post_list
             article(class="post")
                 div(class="post__image-container")
-                    img(class="post__image" src="/images/optimistictrousers.jpg")
+                    if post.user.avatar === "elmo"
+                        img(class="post__image" src=`/images/${post.user.avatar}.webp`)
+                    else if post.user.avatar === "jerry"
+                        img(class="post__image" src=`/images/${post.user.avatar}.webp`)
+                    else if post.user.avatar === "peppa"
+                        img(class="post__image" src=`/images/${post.user.avatar}.webp`)
+                    else if post.user.avatar === "roblox"
+                        img(class="post__image" src=`/images/roblox.png`)
+                    else if post.user.avatar === "shrek"
+                        img(class="post__image" src=`/images/${post.user.avatar}.webp`)
+                    else if post.user.avatar === "optimistic"
                 div(class="post__container")
                     h3(class="post__title") #{post.title}
                     div(class="post__details")
