@@ -129,15 +129,15 @@ main {
 }
 
 .header__link--signup {
-  background-color: #ff9a7b;
+  background-color: #0a74da;
   padding: 8px 30px;
   border-radius: 8px;
   color: white;
-  transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transition for hover effects */
+  transition: background-color 0.3s ease; /* Smooth transition for hover effects */
 }
 
 .header__link--signup:hover {
-  background-color: #ff875c; /* A slightly darker shade for a subtle hover effect */
+  background-color: #0d65e8;
 }
 
 .header__link--signout {
@@ -153,10 +153,6 @@ main {
 
 .header__link--signout:hover {
   background-color: #ff6b81; /* A slightly lighter red on hover for feedback */
-}
-
-.header__link--signup:hover {
-  background-color: #2d78a3;
 }
 
 .footer {

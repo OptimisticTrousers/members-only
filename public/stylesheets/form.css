@@ -140,7 +140,7 @@ legend {
   color: white;
   padding: 0.85rem 1rem;
   width: 100%;
-  border-radius: 50px;
+  border-radius: 8px;
   border: none;
   font-size: 1.75rem;
   cursor: pointer;
