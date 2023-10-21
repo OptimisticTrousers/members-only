@@ -67,7 +67,7 @@ main {
   margin: 0 30px 0 0;
 }
 
-.header__list .header__link {
+.header__link {
   margin: 0 10px;
   line-height: 70px;
 }
@@ -93,17 +93,6 @@ main {
   margin-right: 20px;
 }
 
-.header__item {
-  display: inline-block;
-  margin: 0 5px;
-}
-
-.header__item:nth-last-child(2) {
-  border-bottom: none;
-  color: white;
-  font-family: "Kaleko";
-}
-
 .header__image {
   z-index: 1;
   width: 75px;
@@ -117,6 +106,17 @@ main {
   opacity: 0.7;
 }
 
+.header__item {
+  display: inline-block;
+  margin: 0 5px;
+}
+
+.header__item:nth-last-child(2) {
+  border-bottom: none;
+  color: white;
+  font-family: "Kaleko";
+}
+
 .header__link {
   font-size: 16px;
   padding: 8px 13px;
@@ -125,14 +125,34 @@ main {
 }
 
 .header__link--regular:hover {
-  color: #3a95c9;
+  color: #c2c2ff;
 }
 
 .header__link--signup {
-  background-color: #3a95c9;
+  background-color: #ff9a7b;
   padding: 8px 30px;
-  border-radius: 50px;
+  border-radius: 8px;
   color: white;
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transition for hover effects */
+}
+
+.header__link--signup:hover {
+  background-color: #ff875c; /* A slightly darker shade for a subtle hover effect */
+}
+
+.header__link--signout {
+  background-color: #ff4757; /* A slightly deep red shade */
+  color: #ffffff; /* White text */
+  padding: 10px 20px; /* Padding for size */
+  border-radius: 5px; /* Rounded corners */
+  font-weight: bold; /* Bold text for visibility */
+  border: none; /* No border */
+  cursor: pointer; /* Hand cursor on hover */
+  transition: background-color 0.3s ease; /* Smooth color transition on hover */
+}
+
+.header__link--signout:hover {
+  background-color: #ff6b81; /* A slightly lighter red on hover for feedback */
 }
 
 .header__link--signup:hover {
@@ -181,8 +201,13 @@ a {
     text-align: center;
     display: none;
     width: 100%;
+    margin-top: 1rem;
     padding-left: 0;
     margin-right: 0;
+    padding-bottom: 1rem;
+    background-color: #3a3a3a; /* A dark background for contrast */
+    border-top: 3px solid #5e5e5e; /* A top border for visual separation */
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2); /* A slight shadow for depth */
   }
 
   .header__image {
@@ -190,26 +215,22 @@ a {
   }
 
   .header__link {
-    line-height: 70px;
-    width: 100%;
+    line-height: 40px;
     border-radius: 0;
+    display: block; /* Full width clickable area */
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: xx-large;
   }
 
-  .header__link--signup {
-    background-color: transparent;
-    color: white;
-  }
-
-  .header__link--signup:hover {
-    background-color: transparent;
-    color: #3a95c9;
+  .header__link--regular:hover {
+    background-color: #4a4a4a; /* Slight background change on hover for feedback */
+    color: #9b9bcd; /* Retaining your hover color choice */
   }
 
   .header__item {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-bottom: 1px solid #eaeaeb;
+    display: block; /* Stack items vertically */
+    margin: 10px 0; /* Increased vertical margin for better spacing */
   }
 
   .header__item:nth-last-child(2) {

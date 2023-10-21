@@ -26,7 +26,7 @@ html(lang='en')
           if locals.isAuthenticated
             li(class="header__item") Hello, #{locals.user.firstName} #{locals.user.lastName}
             li(class="header__item")
-              a(class="header__link header__link--signup" href="/log-out") Sign Out
+              a(class="header__link header__link--signout" href="/log-out") Sign Out
           else
             li(class="header__item")
               a(class="header__link header__link--regular" href="/log-in") Log In
